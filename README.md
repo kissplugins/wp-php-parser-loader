@@ -2,8 +2,10 @@
 
 A standalone plugin to load the [PHP-Parser library](https://github.com/nikic/PHP-Parser), making it available for other WordPress plugins to use. This centralized approach prevents code duplication and potential conflicts that can arise when multiple plugins bundle the same library.
 
-**Author:** (c) Nikita Popov
+**Original PHP Parser Author:** (c) Nikita Popov
 **License:** BSD-3-Clause
+ 
+The currently PHP Parser bundled version is **v5.2.0**, retrieved from the GitHub master branch on June 27, 2025.
 
 ## Description
 
@@ -88,3 +90,63 @@ function my_awesome_plugin_task() {
 // Hook your function to a WordPress action
 add_action( 'init', 'my_awesome_plugin_task' );
 ```
+
+### Upgrading the Bundled PHP-Parser Library
+
+This WordPress plugin bundles the `PHP-Parser` library to ensure its availability for other plugins and to prevent conflicts. The currently bundled version is **v5.2.0**, retrieved from the GitHub master branch on June 27, 2025. As the original library evolves, developers may need to upgrade the bundled version to incorporate new features, performance improvements, and security fixes.
+
+Here is a guide for a WordPress developer on how to upgrade the bundled `PHP-Parser` library at a later time:
+
+-----
+
+### How to Upgrade the Bundled PHP-Parser Library Independently of this Plugin
+
+This guide outlines the process for updating the version of the `PHP-Parser` library included with this plugin.
+
+**1. Download the New Library Version:**
+
+Navigate to the official `PHP-Parser` GitHub repository at [https://github.com/nikic/PHP-Parser](https://github.com/nikic/PHP-Parser). From the "Releases" page, download the source code (in .zip or .tar.gz format) for the desired newer version.
+
+**2. Replace the Existing Library Files:**
+
+The current plugin structure places the `PHP-Parser` library files within the `/lib/PhpParser/` directory.
+
+  * **Delete the existing contents** of the `lib/PhpParser/` directory within your plugin's folder.
+  * **Extract the downloaded source code.** Inside the extracted folder, you will find a `lib/` or `src/` directory containing the library's source files.
+  * **Copy the new library files** into the `lib/PhpParser/` directory of this plugin. The autoloader is configured to look for files in this specific location, so it's crucial to maintain this directory structure.
+
+**3. Verify the Upgrade:**
+
+After replacing the files, it is important to verify that the new version of the library is loading and functioning correctly.
+
+  * Navigate to the WordPress admin dashboard.
+  * Go to **Settings -\> PHP-Parser Loader**.
+  * This settings page includes a simple test that attempts to parse a string of PHP code. If the "Library Status" shows "Success" and the "Parser Test" displays the "Parsed and Pretty-Printed Code" without any errors, the upgrade was successful.
+
+**4. Update Plugin Documentation:**
+
+Finally, update the plugin's main file comment block and any relevant documentation to reflect the new version of the bundled library. Change the version number and the date it was retrieved. For example:
+
+```php
+/**
+ * ...
+ * The current version that's bundled is 
+ * "vX.X.X (Retrieved from Github on YYYY-MM-DD)"
+ * ...
+ */
+```
+
+By following these steps, you can ensure that your plugin remains up-to-date with the latest advancements in the `PHP-Parser` library, providing a stable and secure experience for your users.
+
+**NO WARRANTY**
+  
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
