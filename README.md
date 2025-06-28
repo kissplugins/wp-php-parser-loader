@@ -3,9 +3,9 @@
 A standalone plugin to load the [PHP-Parser library](https://github.com/nikic/PHP-Parser), making it available for other WordPress plugins to use. This centralized approach prevents code duplication and potential conflicts that can arise when multiple plugins bundle the same library.
 
 **Original PHP Parser Author:** (c) Nikita Popov
-**License:** BSD-3-Clause
 **Library Loader WP Plugin Author:** (c) KISS Plugins
- 
+**License for both:** BSD-3-Clause 
+
 The currently PHP Parser bundled version is **v5.2.0**, retrieved from the GitHub master branch on June 27, 2025.
 
 ## Description
