@@ -9,7 +9,7 @@ The currently PHP Parser bundled version is **v5.2.0**, retrieved from the GitHu
 
 ## Description
 
-This plugin has no user-facing interface or settings. Its sole purpose is to safely load the PHP-Parser library and provide a shared, reliable resource for other plugins that need to parse or manipulate PHP code.
+This plugin has minimal user-facing interface WP settings page to help test basic functionality only. Its sole purpose is to safely load the PHP-Parser library and provide a shared, reliable resource for other plugins that need to parse or manipulate PHP code.
 
 Instead of bundling the library with your own plugin, you can list this plugin as a dependency.
 
